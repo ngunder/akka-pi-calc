@@ -14,7 +14,8 @@ Maybe this was done already, but I thought it would be fun to learn it this way 
 https://doc.akka.io/docs/akka/2.0.2/intro/getting-started-first-java.html
 
 ## To Run
+```
 mvn compile
 mvn exec:java -Dexec.mainClass="akka.pi.calc.Pi"
-
+```
 
