@@ -1,6 +1,8 @@
 package akka.pi.calc;
 
 import akka.actor.*;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import scala.concurrent.duration.Duration;
 
 
@@ -63,7 +65,9 @@ public class Pi{
     private void calculate(final int nrOfWorkers,
                            final int nrOfElements,
                            final int nrOfMessages) {
-        ActorSystem system = ActorSystem.create("PiSystem");
+
+        Config conf = ConfigFactory.load();
+        ActorSystem system = ActorSystem.create("PiSystem", conf);
         Props listener_props = Props.create(PiListener.class);
         final ActorRef listener = system.actorOf(listener_props, "listener_actor");
 
